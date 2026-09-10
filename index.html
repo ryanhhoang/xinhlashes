@@ -771,8 +771,7 @@
       <h2 data-i18n-html="book.h2">Wunschtermin anfragen.</h2>
       <p class="sub" data-i18n="book.sub">Sende uns deinen Wunschtermin. Wir prüfen die Anfrage persönlich und melden uns per E-Mail zurück.</p>
     </div>
-    <form class="form" id="bookingForm" name="terminanfrage" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="terminanfrage">
+    <form class="form" id="bookingForm" name="terminanfrage" method="POST" enctype="multipart/form-data" novalidate>
       <p style="display:none"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
       <div class="grid2">
         <div class="field">
@@ -836,7 +835,7 @@
           <input id="photoUpload" name="referenzbilder" type="file" accept="image/jpeg,image/png,image/webp" multiple>
         </label>
         <div class="file-selection" id="fileSelection" data-i18n="book.photos.none">Noch keine Bilder ausgewählt.</div>
-        <div class="file-help" data-i18n="book.photos.hint">Du kannst mehrere Referenzbilder auf einmal auswählen, z. B. deinen Wunsch-Look oder deine aktuellen Wimpern. JPG, PNG oder WebP; zusammen maximal 7 MB.</div>
+        <div class="file-help" data-i18n="book.photos.hint">Du kannst bis zu 6 Referenzbilder auf einmal auswählen, z. B. deinen Wunsch-Look oder deine aktuellen Wimpern. JPG, PNG oder WebP; zusammen maximal 7 MB.</div>
         <div class="warn" id="fileWarn"></div>
       </div>
       <label style="display:flex;gap:8px;align-items:flex-start;font-size:11px;font-weight:500;letter-spacing:0"><input id="consent" name="datenschutz_bestaetigt" value="ja" type="checkbox" required style="width:auto;margin-top:2px"> <span data-i18n-html="book.consent">Ich habe die <a href="#datenschutz-page" style="color:inherit;text-decoration:underline">Datenschutzerklärung</a> zur Kenntnis genommen. Meine Angaben werden ausschließlich zur Bearbeitung meiner Terminanfrage verwendet.</span></label>
@@ -986,7 +985,7 @@ const I18N = {
     "book.f3.b":"Persönliche Bestätigung","book.f3.s":"Wir bestätigen oder schlagen eine Alternative persönlich per E-Mail oder WhatsApp vor.",
     "book.f4.b":"Öffnungszeiten","book.f4.s":"Montag–Samstag 9:30–19:00 Uhr, letzter möglicher Start um 17:30 Uhr. Sonntag geschlossen.",
     "book.lbl.service":"BEHANDLUNG","book.lbl.name":"NAME","book.lbl.date":"WUNSCHDATUM","book.lbl.staff":"STYLISTIN","book.lbl.slots":"GEWÜNSCHTE STARTZEIT (LETZTER MÖGLICHER START 17:30 UHR)","book.lbl.phone":"TELEFONNUMMER","book.lbl.email":"E-MAIL","book.lbl.note":"NOTIZ",
-    "book.lbl.type":"ART DER BEHANDLUNG","book.type.new":"Neu-Set","book.type.refill2":"Auffüllung · bis 2 Wochen","book.type.refill3":"Auffüllung · bis 3 Wochen","book.type.refill4":"Auffüllung · bis 4 Wochen","book.type.foreign":"Fremdarbeit (bei anderem Studio gesetzt)","book.type.lift.color":"Mit Farbe","book.type.lift.plain":"Ohne Farbe","book.type.standard":"Behandlung","book.group.extensions":"Wimpernverlängerung","book.group.lifting":"Lifting & Brows","book.group.small":"Kleine Behandlungen","book.service.mascara":"Mascara Look","book.service.hybrid":"Hybrid Look / 2–3D","book.service.wetlook":"Wetlook / 4–5D","book.service.mega":"Mega Look ab 6D","book.service.design":"Design Look (Anime / Douyin / Manhwa)","book.service.korean":"Korean Lifting inkl. Farbe","book.service.lashlift":"Wimpernlifting","book.service.browlift":"Augenbrauenlifting","book.service.removal":"Wimpernverlängerung entfernen","book.service.browtweeze_tint":"Augenbrauen zupfen & färben","book.service.brow_lash_tint":"Augenbrauen & Wimpern färben","book.service.browtweeze":"Augenbrauen zupfen","book.service.browtint":"Augenbrauen färben","book.service.lashtint":"Wimpern färben","book.service.lowerlashes":"Wimpern unten","book.service.handmassage":"Handmassage","book.lbl.photos":"REFERENZFOTOS (OPTIONAL)","book.photos.cta":"Bilder auswählen","book.photos.none":"Noch keine Bilder ausgewählt.","book.photos.selected":"Bilder ausgewählt","book.photos.hint":"Du kannst mehrere Referenzbilder auf einmal auswählen, z. B. deinen Wunsch-Look oder deine aktuellen Wimpern. JPG, PNG oder WebP; zusammen maximal 7 MB.",
+    "book.lbl.type":"ART DER BEHANDLUNG","book.type.new":"Neu-Set","book.type.refill2":"Auffüllung · bis 2 Wochen","book.type.refill3":"Auffüllung · bis 3 Wochen","book.type.refill4":"Auffüllung · bis 4 Wochen","book.type.foreign":"Fremdarbeit (bei anderem Studio gesetzt)","book.type.lift.color":"Mit Farbe","book.type.lift.plain":"Ohne Farbe","book.type.standard":"Behandlung","book.group.extensions":"Wimpernverlängerung","book.group.lifting":"Lifting & Brows","book.group.small":"Kleine Behandlungen","book.service.mascara":"Mascara Look","book.service.hybrid":"Hybrid Look / 2–3D","book.service.wetlook":"Wetlook / 4–5D","book.service.mega":"Mega Look ab 6D","book.service.design":"Design Look (Anime / Douyin / Manhwa)","book.service.korean":"Korean Lifting inkl. Farbe","book.service.lashlift":"Wimpernlifting","book.service.browlift":"Augenbrauenlifting","book.service.removal":"Wimpernverlängerung entfernen","book.service.browtweeze_tint":"Augenbrauen zupfen & färben","book.service.brow_lash_tint":"Augenbrauen & Wimpern färben","book.service.browtweeze":"Augenbrauen zupfen","book.service.browtint":"Augenbrauen färben","book.service.lashtint":"Wimpern färben","book.service.lowerlashes":"Wimpern unten","book.service.handmassage":"Handmassage","book.lbl.photos":"REFERENZFOTOS (OPTIONAL)","book.photos.cta":"Bilder auswählen","book.photos.none":"Noch keine Bilder ausgewählt.","book.photos.selected":"Bilder ausgewählt","book.photos.hint":"Du kannst bis zu 6 Referenzbilder auf einmal auswählen, z. B. deinen Wunsch-Look oder deine aktuellen Wimpern. JPG, PNG oder WebP; zusammen maximal 7 MB.",
     "book.staff.any":"Erste verfügbare","book.staffline":"Montag–Mittwoch: 3 Stylistinnen · Donnerstag–Samstag: 4 Stylistinnen · Sonntag geschlossen",
     "book.ph.name":"Vor- und Nachname","book.ph.phone":"+49 …","book.ph.note":"Gewünschter Look, Fremdmaterial oder andere Hinweise",
     "book.consent":"Ich habe die <a href=\"#datenschutz-page\" style=\"color:inherit;text-decoration:underline\">Datenschutzerklärung</a> zur Kenntnis genommen. Meine Angaben werden ausschließlich zur Bearbeitung meiner Terminanfrage verwendet.","book.submit":"Terminanfrage senden",
@@ -1498,8 +1497,8 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   const files = photoInput ? Array.from(photoInput.files || []) : [];
   const totalBytes = files.reduce((sum,f)=>sum+f.size,0);
   const fileWarn = document.getElementById('fileWarn');
-  const filesOk = files.every(f=>allowedTypes.includes(f.type)) && totalBytes <= 7*1024*1024;
-  fileWarn.textContent = lang==='en' ? 'Please use JPG, PNG or WebP images and keep the total below 7 MB.' : 'Bitte nutze nur JPG-, PNG- oder WebP-Bilder und bleibe insgesamt unter 7 MB.';
+  const filesOk = files.length <= 6 && files.every(f=>allowedTypes.includes(f.type)) && totalBytes <= 7*1024*1024;
+  fileWarn.textContent = lang==='en' ? 'Please use up to 6 JPG, PNG or WebP images and keep the total below 7 MB.' : 'Bitte nutze maximal 6 JPG-, PNG- oder WebP-Bilder und bleibe insgesamt unter 7 MB.';
   fileWarn.classList.toggle('show', !filesOk);
   if(!filesOk) ok=false;
   if(!ok) return;
@@ -1516,31 +1515,110 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   submitBtn.disabled=true;
   submitBtn.textContent = lang==='en' ? 'Sending request…' : 'Anfrage wird gesendet…';
 
-  const payload = new FormData(form);
-  payload.set('behandlung', serviceLabel);
-  payload.set('art', typeLabel);
-  payload.set('wunschzeit', selectedSlot);
-  payload.set('zeitraum', selectedSlot + '–' + endTime);
-  payload.set('status', 'TERMINANFRAGE – manuelle Bestätigung erforderlich');
-  payload.set('hinweis', 'Keine automatische Bestätigung. Bitte Anfrage manuell prüfen und Kundin/Kunden persönlich bestätigen.');
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUWvRlcm8hGMtqyU4QRsdxgDYMLhFC_qsQx6CXYqr5OsLLWYVnL88o62WhZ6pRGQA6-w/exec';
+  const readAsDataURL = file => new Promise((resolve,reject)=>{
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('File read failed'));
+    reader.readAsDataURL(file);
+  });
 
   try{
-    const response = await fetch('/', {
-      method:'POST',
-      body:payload
+    const encodedFiles = await Promise.all(files.map(async f => ({
+      name: f.name,
+      type: f.type,
+      size: f.size,
+      base64: await readAsDataURL(f)
+    })));
+
+    const requestData = {
+      name: nameValue,
+      telefon: phone.value.trim(),
+      email: email.value.trim(),
+      behandlung: service.value,
+      behandlungLabel: serviceLabel,
+      art: typeSel.value,
+      artLabel: typeLabel,
+      wunschdatum: date.value,
+      wunschzeit: selectedSlot,
+      zeitraum: selectedSlot + '–' + endTime,
+      nachricht: note.value.trim(),
+      datenschutz_bestaetigt: consent.checked ? 'ja' : '',
+      sprache: lang,
+      botField: form.querySelector('[name="bot-field"]')?.value || '',
+      files: encodedFiles
+    };
+
+    const iframeName = 'xinhBookingReceiver';
+    let iframe = document.getElementById(iframeName);
+    if(!iframe){
+      iframe = document.createElement('iframe');
+      iframe.id = iframeName;
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      iframe.setAttribute('aria-hidden','true');
+      document.body.appendChild(iframe);
+    }
+
+    const result = await new Promise((resolve,reject)=>{
+      let finished = false;
+      const timeout = setTimeout(()=>{
+        if(finished) return;
+        finished = true;
+        window.removeEventListener('message', onMessage);
+        reject(new Error('Request timeout'));
+      }, 30000);
+
+      function onMessage(event){
+        if(event.source !== iframe.contentWindow) return;
+        const data = event.data;
+        if(!data || typeof data !== 'object' || typeof data.ok !== 'boolean') return;
+        if(finished) return;
+        finished = true;
+        clearTimeout(timeout);
+        window.removeEventListener('message', onMessage);
+        data.ok ? resolve(data) : reject(new Error(data.message || 'Request failed'));
+      }
+      window.addEventListener('message', onMessage);
+
+      const postForm = document.createElement('form');
+      postForm.method = 'POST';
+      postForm.action = SCRIPT_URL;
+      postForm.target = iframeName;
+      postForm.style.display = 'none';
+
+      const payloadInput = document.createElement('input');
+      payloadInput.type = 'hidden';
+      payloadInput.name = 'payload';
+      payloadInput.value = JSON.stringify(requestData);
+      postForm.appendChild(payloadInput);
+
+      const botInput = document.createElement('input');
+      botInput.type = 'hidden';
+      botInput.name = 'bot-field';
+      botInput.value = requestData.botField;
+      postForm.appendChild(botInput);
+
+      document.body.appendChild(postForm);
+      postForm.submit();
+      setTimeout(()=>postForm.remove(), 1000);
     });
-    if(!response.ok) throw new Error('Form submission failed');
 
     document.getElementById('successSummary').textContent = lang==='en'
       ? `${serviceLabel} (${typeLabel}), preferred ${dateFmt} at ${selectedSlot}. Your request has been sent; this is not yet an appointment confirmation.`
       : `${serviceLabel} (${typeLabel}), gewünscht am ${dateFmt} um ${selectedSlot} Uhr. Deine Anfrage wurde gesendet; dies ist noch keine Terminbestätigung.`;
     document.getElementById('success').style.display='block';
     document.getElementById('success').scrollIntoView({behavior:'smooth', block:'nearest'});
+    form.reset();
+    selectedSlot = '';
+    document.getElementById('slotValue').value = '';
+    document.querySelectorAll('#slots .slot').forEach(el=>el.classList.remove('active'));
+    if(document.getElementById('fileSelection')) document.getElementById('fileSelection').textContent = lang==='en' ? 'No images selected.' : 'Noch keine Bilder ausgewählt.';
   }catch(err){
     console.error(err);
     alert(lang==='en'
-      ? 'The request could not be sent. Please email us at info@xinhlashes.de.'
-      : 'Die Anfrage konnte nicht gesendet werden. Bitte schreibe uns an info@xinhlashes.de.');
+      ? 'The request could not be sent. Please try again or email us at info@xinhlashes.de.'
+      : 'Die Anfrage konnte nicht gesendet werden. Bitte versuche es erneut oder schreibe uns an info@xinhlashes.de.');
   }finally{
     submitBtn.disabled=false;
     submitBtn.textContent=originalText;
@@ -1569,12 +1647,12 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     <p class="legal-lead">Stand: 10. September 2026. Informationen nach Art. 13 DSGVO über die Verarbeitung personenbezogener Daten auf dieser Website.</p>
     <div class="legal-card"><h2>1. Verantwortliche</h2><p><strong>Xinh Lashes Berlin</strong><br>Inhaberin: Thi My Le Nguyen<br>Boxhagener Straße 35, 10245 Berlin<br>Telefon: <a href="tel:+4915224707383">0152 24707383</a><br>E-Mail: <a href="mailto:info@xinhlashes.de">info@xinhlashes.de</a></p></div>
     <div class="legal-card"><h2>2. Hosting</h2><p>Diese Website wird über Netlify bereitgestellt. Anbieter ist Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA. Beim Aufruf der Website verarbeitet Netlify technisch erforderliche Verbindungs- und Protokolldaten, insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Ressource, Referrer sowie Browser- und Geräteinformationen. Die Verarbeitung erfolgt zur sicheren, stabilen und effizienten Bereitstellung der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Soweit Netlify Daten in unserem Auftrag verarbeitet, erfolgt dies auf Grundlage eines Auftragsverarbeitungsverhältnisses. Übermittlungen in die USA können insbesondere auf dem EU-U.S. Data Privacy Framework bzw. ergänzend auf geeigneten Garantien wie Standardvertragsklauseln beruhen. Weitere Informationen: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify Privacy Statement</a>.</p></div>
-    <div class="legal-card"><h2>3. Terminanfrage über das Formular</h2><p>Wenn du eine Terminanfrage sendest, verarbeiten wir die von dir eingegebenen Daten, insbesondere Name, gewünschte Behandlung, Wunschdatum, Wunschzeit, Telefonnummer, E-Mail-Adresse, freiwillige Nachricht und – sofern von dir ausgewählt – bis zu drei Referenzbilder. Zweck ist ausschließlich die Prüfung, Bearbeitung und persönliche Beantwortung deiner Terminanfrage. Die Anfrage ist keine automatische Buchung und löst keine automatische Terminbestätigung aus. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf deine Anfrage).</p><p>Das Formular wird über Netlify Forms technisch entgegengenommen. Die Daten können dabei auf Systemen von Netlify verarbeitet werden. Wir verwenden die Angaben nur so lange, wie dies für die Bearbeitung der Anfrage und ggf. die anschließende Kundenbeziehung erforderlich ist; danach werden sie gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p></div>
+    <div class="legal-card"><h2>3. Terminanfrage über das Formular</h2><p>Wenn du eine Terminanfrage sendest, verarbeiten wir die von dir eingegebenen Daten, insbesondere Name, gewünschte Behandlung, Wunschdatum, Wunschzeit, Telefonnummer, E-Mail-Adresse, freiwillige Nachricht und – sofern von dir ausgewählt – bis zu sechs Referenzbilder. Zweck ist ausschließlich die Prüfung, Bearbeitung und persönliche Beantwortung deiner Terminanfrage. Die Anfrage ist keine automatische Buchung und löst keine automatische Terminbestätigung aus. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf deine Anfrage).</p><p>Zur technischen Übermittlung der Terminanfrage verwenden wir Google Apps Script und für die Zustellung an unser Studio-Postfach Google-Dienste. Dabei werden die Formulardaten an Google-Systeme übertragen und dort zur technischen Verarbeitung der Anfrage genutzt. Die Daten werden von uns nur so lange verarbeitet, wie dies für die Bearbeitung der Anfrage und eine gegebenenfalls anschließende Kundenbeziehung erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt.</p></div>
     <div class="legal-card"><h2>4. Kontakt per E-Mail, Telefon und WhatsApp</h2><p>Bei Kontakt per E-Mail oder Telefon verarbeiten wir die von dir übermittelten Angaben zur Bearbeitung deiner Anfrage auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO bzw., soweit keine Vertragsanbahnung betroffen ist, Art. 6 Abs. 1 lit. f DSGVO.</p><p>Für WhatsApp verwenden wir den Dienst von Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland. Wenn du den WhatsApp-Link anklickst oder uns dort schreibst, werden insbesondere deine Telefonnummer, Kommunikationsinhalte und technische Metadaten durch WhatsApp/Meta verarbeitet. Die Nutzung ist freiwillig; alternativ kannst du uns per E-Mail oder Telefon kontaktieren. Rechtsgrundlage für unsere Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO. Informationen zur Verarbeitung durch WhatsApp findest du in deren Datenschutzhinweisen.</p></div>
     <div class="legal-card"><h2>5. Google Maps</h2><p>Die Google-Maps-Karte wird auf dieser Website nicht automatisch geladen. Erst nach deiner aktiven Zustimmung wird eine Verbindung zu Google Maps hergestellt. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei können insbesondere IP-Adresse, Geräteinformationen und Nutzungsdaten verarbeitet und gegebenenfalls in Drittländer übermittelt werden. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO; soweit Informationen auf deinem Endgerät gespeichert oder ausgelesen werden, erfolgt dies auf Grundlage von § 25 Abs. 1 TDDDG. Du kannst deine Entscheidung jederzeit über „Cookie-Einstellungen“ im Footer ändern.</p></div>
     <div class="legal-card"><h2>6. Instagram, TikTok, Facebook, Salonkee und externe Links</h2><p>Auf der Website befinden sich Links zu externen Angeboten wie Instagram, TikTok, Facebook und Salonkee. Solange du diese Links nicht anklickst, wird allein durch die Verlinkung keine direkte Verbindung zu diesen Anbietern hergestellt. Nach dem Anklicken gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p></div>
     <div class="legal-card"><h2>7. Lokale Speicherung und Einwilligungsverwaltung</h2><p>Diese Website verwendet den lokalen Browserspeicher ausschließlich für technisch erforderliche bzw. von dir gewählte Einstellungen, insbesondere die Sprachauswahl und deine Entscheidung zum Laden der Google-Maps-Karte. Die notwendige Speicherung erfolgt nach § 25 Abs. 2 Nr. 2 TDDDG; die Speicherung deiner freiwilligen Google-Maps-Einwilligung dient der Dokumentation und Umsetzung deiner Auswahl.</p></div>
-    <div class="legal-card"><h2>8. Empfänger und Drittlandübermittlungen</h2><p>Personenbezogene Daten erhalten nur Stellen, die sie zur Erfüllung der genannten Zwecke benötigen. Hierzu können insbesondere unser Hosting- und Formulardienstleister Netlify sowie – bei freiwilliger Nutzung – WhatsApp/Meta und Google gehören. Soweit Daten in Staaten außerhalb des Europäischen Wirtschaftsraums übertragen werden, erfolgt dies nur unter Beachtung der Voraussetzungen der Art. 44 ff. DSGVO, insbesondere auf Grundlage eines Angemessenheitsbeschlusses oder geeigneter Garantien.</p></div>
+    <div class="legal-card"><h2>8. Empfänger und Drittlandübermittlungen</h2><p>Personenbezogene Daten erhalten nur Stellen, die sie zur Erfüllung der genannten Zwecke benötigen. Hierzu können insbesondere unser Hostingdienstleister Netlify sowie Google als technischer Dienstleister für die Übermittlung der Terminanfrage und – bei freiwilliger Nutzung – WhatsApp/Meta gehören. Soweit Daten in Staaten außerhalb des Europäischen Wirtschaftsraums übertragen werden, erfolgt dies nur unter Beachtung der Voraussetzungen der Art. 44 ff. DSGVO, insbesondere auf Grundlage eines Angemessenheitsbeschlusses oder geeigneter Garantien.</p></div>
     <div class="legal-card"><h2>9. Speicherdauer</h2><p>Wir speichern personenbezogene Daten nur so lange, wie sie für den jeweiligen Zweck erforderlich sind. Daten aus reinen Terminanfragen werden nach Abschluss der Bearbeitung gelöscht, sofern daraus keine Kundenbeziehung entsteht und keine gesetzlichen Gründe eine längere Aufbewahrung verlangen. Vertrags- und abrechnungsrelevante Daten können aufgrund handels- und steuerrechtlicher Pflichten länger gespeichert werden.</p></div>
     <div class="legal-card"><h2>10. Deine Rechte</h2><p>Du hast nach Maßgabe der gesetzlichen Voraussetzungen insbesondere das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO). Erteilte Einwilligungen kannst du jederzeit mit Wirkung für die Zukunft widerrufen.</p></div>
     <div class="legal-card"><h2>11. Beschwerderecht</h2><p>Du hast das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für Berlin ist insbesondere die Berliner Beauftragte für Datenschutz und Informationsfreiheit zuständig.</p></div>

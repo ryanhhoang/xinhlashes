@@ -608,6 +608,52 @@
 #faq .faq-cta p{margin:4px 0 0;color:var(--muted)}
 @media(max-width:620px){#faq summary{padding:17px 0;font-size:19px}#faq .faq-answer{padding:0 28px 18px 0;font-size:14px}#faq .faq-cta{align-items:flex-start;flex-direction:column;padding:20px}}
 </style>
+
+<style id="drawer-v21-compact-mobile">
+/* v21: Mobile-Menü kompakter, vollständig sichtbar und nicht gequetscht. */
+@media (max-width:900px){
+  .side-overlay{background:rgba(25,18,13,.32)!important;backdrop-filter:blur(5px)!important}
+  .side-drawer{
+    width:calc(100vw - 24px)!important;
+    max-width:430px!important;
+    height:auto!important;
+    max-height:calc(100dvh - 24px)!important;
+    top:12px!important;
+    right:12px!important;
+    bottom:auto!important;
+    padding:0 20px 18px!important;
+    border-radius:28px!important;
+    background:rgba(255,252,247,.99)!important;
+    box-shadow:0 24px 70px rgba(43,33,26,.18)!important;
+    overflow-y:auto!important;
+  }
+  .side-head{min-height:78px!important;padding:10px 0 9px!important}
+  .side-head .brand img{height:52px!important;max-width:175px!important}
+  .side-close{width:44px!important;height:44px!important;border-radius:15px!important}
+  .side-links{
+    flex:0 0 auto!important;
+    justify-content:flex-start!important;
+    padding:10px 8px 8px!important;
+  }
+  .side-links a{font-size:18px!important;padding:9px 8px!important;line-height:1.12!important}
+  .side-links .side-book-link{margin-top:10px!important;padding:13px 16px!important;font-size:14px!important}
+  .side-mini{padding:8px 8px 0!important;gap:8px!important}
+  .side-lang-btn{min-height:42px!important;border-radius:14px!important;font-size:13px!important}
+  .side-location{font-size:10.5px!important;padding-bottom:0!important}
+}
+@media (max-width:380px), (max-height:700px){
+  .side-drawer{width:calc(100vw - 16px)!important;top:8px!important;right:8px!important;max-height:calc(100dvh - 16px)!important;padding:0 15px 12px!important;border-radius:22px!important}
+  .side-head{min-height:64px!important;padding:7px 0!important}
+  .side-head .brand img{height:43px!important}
+  .side-close{width:38px!important;height:38px!important}
+  .side-links{padding:6px 6px 5px!important}
+  .side-links a{font-size:16px!important;padding:6.5px 6px!important}
+  .side-links .side-book-link{margin-top:7px!important;padding:10px 13px!important;font-size:13px!important}
+  .side-mini{padding-top:5px!important;gap:5px!important}
+  .side-lang-btn{min-height:36px!important;font-size:12px!important}
+  .side-location{font-size:9.5px!important}
+}
+</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -653,6 +699,7 @@
     <a href="#bewertungen" data-i18n="nav.bewertungen">Bewertungen</a>
     <a href="#studio" data-i18n="nav.studio">Studio</a>
     <a href="#logo">Social</a>
+    <a href="#faq">FAQ</a>
     <a class="side-book-link" href="#buchung" data-i18n="nav.book">Terminanfrage</a>
   </nav>
   <div class="side-mini">
@@ -873,32 +920,6 @@
 </section>
 
 
-<section id="faq">
-  <div class="container faq-wrap">
-    <div class="eyebrow">FAQ · Xinh Lashes Berlin</div>
-    <h2>Alles, was du vor deinem Termin wissen solltest.</h2>
-    <p class="faq-intro">Von der Wahl des richtigen Looks über Haltbarkeit und Auffüllen bis zur Vorbereitung und Pflege – hier findest du die wichtigsten Antworten rund um deinen Termin bei Xinh Lashes in Berlin-Friedrichshain.</p>
-    <div class="faq-list">
-      <details><summary>Welcher Wimpern-Look passt zu mir?</summary><div class="faq-answer">Das hängt von deiner Augenform, deinen Naturwimpern und davon ab, wie natürlich oder ausdrucksstark du das Ergebnis möchtest. Wir arbeiten mit individuellem Mapping und beraten dich vor der Behandlung. Möglich sind unter anderem <strong>Mascara Look, Hybrid Look, Wetlook, Mega Look sowie Anime-, Douyin- und Manhwa-inspirierte Designs</strong>. Referenzbilder kannst du bereits bei der Terminanfrage hochladen.</div></details>
-      <details><summary>Was ist der Unterschied zwischen Mascara, Hybrid, Wetlook und Mega Look?</summary><div class="faq-answer"><strong>Mascara Look</strong> wirkt definiert und eher natürlich. <strong>Hybrid</strong> kombiniert unterschiedliche Techniken für mehr Textur und Fülle. <strong>Wetlook</strong> arbeitet mit bewusst gebündelten Spitzen für einen markanten, glossy wirkenden Effekt. <strong>Mega Look</strong> ist die intensivste Variante mit deutlich mehr Volumen. Das endgültige Ergebnis wird immer an deine Naturwimpern angepasst.</div></details>
-      <details><summary>Bietet ihr Anime-, Douyin- und Manhwa-Lashes an?</summary><div class="faq-answer">Ja. Design-Looks gehören zu unserem Angebot. Dabei werden Längen, Spikes, Abstände und Mapping gezielt aufgebaut, damit der gewünschte Charakter des Looks entsteht und trotzdem zu deinen Augen passt. Am besten sendest du bei deiner Anfrage ein oder mehrere Inspirationsbilder mit.</div></details>
-      <details><summary>Wie lange hält eine Wimpernverlängerung?</summary><div class="faq-answer">Extensions fallen nach und nach zusammen mit dem natürlichen Wachstumszyklus deiner eigenen Wimpern aus. Wie lange ein Set optisch voll bleibt, ist individuell und hängt unter anderem von deinem Wimpernzyklus, deiner Pflege und deinem Alltag ab. Für ein dauerhaft gepflegtes Ergebnis werden regelmäßige Auffülltermine benötigt.</div></details>
-      <details><summary>Wann sollte ich zum Auffüllen kommen?</summary><div class="faq-answer">Für ein dauerhaft schönes und gepflegtes Ergebnis empfehlen wir, <strong>alle 3 Wochen und spätestens nach 4 Wochen</strong> zum Auffüllen zu kommen. Wie schnell ein Refill nötig ist, hängt zusätzlich von deinem natürlichen Wimpernzyklus, der Pflege und davon ab, wie viele Extensions noch vorhanden bzw. herausgewachsen sind. Warte möglichst nicht, bis nur noch sehr wenige Extensions vorhanden sind. Wenn du unsicher bist, kannst du uns vorab ein aktuelles Foto über WhatsApp oder über die Terminanfrage schicken.</div></details>
-      <details><summary>Kann ich mit Wimpern von einem anderen Studio zum Auffüllen kommen?</summary><div class="faq-answer">Bitte gib <strong>Fremdmaterial</strong> bei der Terminanfrage unbedingt an und lade möglichst ein aktuelles Foto hoch. Wir prüfen dann, ob ein Auffüllen sinnvoll möglich ist. Je nach Zustand, Verklebungen, Mapping oder herausgewachsenen Extensions kann stattdessen eine Entfernung und ein neues Set empfehlenswert sein.</div></details>
-      <details><summary>Wie bereite ich mich auf meinen Termin vor?</summary><div class="faq-answer">Komm möglichst mit <strong>sauberen, ungeschminkten Augen und Wimpern</strong>. Vermeide unmittelbar vorher Mascara und stark ölhaltige Produkte im Augenbereich. Kontaktlinsen sollten sich für die Behandlung problemlos herausnehmen lassen. Wenn du einen bestimmten Look möchtest, bring gern Referenzbilder mit.</div></details>
-      <details><summary>Wie pflege ich meine Wimpern nach dem Termin?</summary><div class="faq-answer">Behandle die Extensions möglichst sanft, reibe oder ziehe nicht daran und halte sie sauber. Regelmäßige, schonende Reinigung hilft dabei, Make-up, Hautfett und Ablagerungen zu entfernen. Vermeide Produkte oder Gewohnheiten, die die Haltbarkeit unnötig beeinträchtigen können, und bürste die Wimpern vorsichtig.</div></details>
-      <details><summary>Kann ich mit Extensions duschen, Sport machen oder in die Sauna?</summary><div class="faq-answer">Grundsätzlich sind Wimpernextensions alltagstauglich. Wasser, Schweiß und Wärme gehören zum normalen Leben – wichtig ist vor allem eine gute Reinigung und ein vorsichtiger Umgang. Sehr intensive Hitze, Reibung oder dauerhaft starke Belastung können die Haltbarkeit beeinflussen.</div></details>
-      <details><summary>Kann ich Mascara oder Augen-Make-up tragen?</summary><div class="faq-answer">Augen-Make-up ist grundsätzlich möglich, sollte sich aber schonend und rückstandsfrei entfernen lassen. Bei Extensions ist Mascara normalerweise nicht nötig und kann die Fächer bzw. das Design verkleben. Wenn du Produkte im Augenbereich verwendest, achte besonders auf gründliche, sanfte Reinigung.</div></details>
-      <details><summary>Was ist ein Korean Lash Lift?</summary><div class="faq-answer">Ein Lash Lift formt deine <strong>eigenen Naturwimpern</strong> nach oben, statt Extensions anzubringen. Der Korean-Lash-Lift-Stil zielt auf einen sauberen, angehobenen und definierten Effekt. Welche Form und Intensität möglich ist, hängt von Länge, Dichte und Wuchsrichtung deiner Naturwimpern ab.</div></details>
-      <details><summary>Ist eine Wimpernverlängerung für empfindliche Augen geeignet?</summary><div class="faq-answer">Empfindlichkeit ist sehr individuell. Informiere uns bitte <strong>vor der Behandlung</strong> über bekannte Reaktionen, Allergien, aktuelle Reizungen oder Beschwerden im Augenbereich. Bei akuten Beschwerden sollte eine kosmetische Behandlung verschoben und bei Bedarf medizinisch abgeklärt werden.</div></details>
-      <details><summary>Wie lange dauert ein Termin?</summary><div class="faq-answer">Die Dauer hängt von der gewählten Behandlung, dem gewünschten Design, deinen Naturwimpern und davon ab, ob es sich um ein Neu-Set oder Auffüllen handelt. Bei der Terminanfrage zeigen wir dir für die gewählte Leistung eine ungefähre Dauer an. Für aufwendige Design-Looks sollte entsprechend mehr Zeit eingeplant werden.</div></details>
-      <details><summary>Kann ich für mehrere Personen gleichzeitig anfragen?</summary><div class="faq-answer">Ja. Im Anfrageformular kannst du die <strong>Anzahl der Personen</strong> auswählen. Wir prüfen anschließend persönlich, ob die gewünschte Uhrzeit für alle Personen verfügbar ist. Die Online-Anfrage allein ist noch keine feste Buchung.</div></details>
-      <details><summary>Ist meine Online-Terminanfrage sofort bestätigt?</summary><div class="faq-answer"><strong>Nein.</strong> Nach dem Absenden erhältst du zunächst eine Eingangsbestätigung. Wir prüfen die Verfügbarkeit persönlich. Erst wenn Xinh Lashes dir den Termin ausdrücklich bestätigt, ist er verbindlich gebucht.</div></details>
-      <details><summary>Wo befindet sich Xinh Lashes?</summary><div class="faq-answer">Du findest uns in der <strong>Boxhagener Straße 35, 10245 Berlin-Friedrichshain</strong>. Über den Google-Maps-Button auf der Website kannst du direkt die Route öffnen. Bei Fragen erreichst du uns außerdem telefonisch, per WhatsApp oder E-Mail.</div></details>
-    </div>
-    <div class="faq-cta"><div><strong>Noch eine Frage?</strong><p>Schreib uns einfach – wir helfen dir auch bei der Auswahl des passenden Looks.</p></div><a class="btn btn-dark" href="https://wa.me/4915224707383?text=Hallo%20Xinh%20Lashes%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener">WhatsApp</a></div>
-  </div>
-</section>
 
 <section id="studio">
   <div class="container">
@@ -1046,6 +1067,35 @@
     </div>
   </div>
 </section>
+
+
+<section id="faq">
+  <div class="container faq-wrap">
+    <div class="eyebrow">FAQ · Xinh Lashes Berlin</div>
+    <h2>Alles, was du vor deinem Termin wissen solltest.</h2>
+    <p class="faq-intro">Von der Wahl des richtigen Looks über Haltbarkeit und Auffüllen bis zur Vorbereitung und Pflege – hier findest du die wichtigsten Antworten rund um deinen Termin bei Xinh Lashes in Berlin-Friedrichshain.</p>
+    <div class="faq-list">
+      <details><summary>Welcher Wimpern-Look passt zu mir?</summary><div class="faq-answer">Das hängt von deiner Augenform, deinen Naturwimpern und davon ab, wie natürlich oder ausdrucksstark du das Ergebnis möchtest. Wir arbeiten mit individuellem Mapping und beraten dich vor der Behandlung. Möglich sind unter anderem <strong>Mascara Look, Hybrid Look, Wetlook, Mega Look sowie Anime-, Douyin- und Manhwa-inspirierte Designs</strong>. Referenzbilder kannst du bereits bei der Terminanfrage hochladen.</div></details>
+      <details><summary>Was ist der Unterschied zwischen Mascara, Hybrid, Wetlook und Mega Look?</summary><div class="faq-answer"><strong>Mascara Look</strong> wirkt definiert und eher natürlich. <strong>Hybrid</strong> kombiniert unterschiedliche Techniken für mehr Textur und Fülle. <strong>Wetlook</strong> arbeitet mit bewusst gebündelten Spitzen für einen markanten, glossy wirkenden Effekt. <strong>Mega Look</strong> ist die intensivste Variante mit deutlich mehr Volumen. Das endgültige Ergebnis wird immer an deine Naturwimpern angepasst.</div></details>
+      <details><summary>Bietet ihr Anime-, Douyin- und Manhwa-Lashes an?</summary><div class="faq-answer">Ja. Design-Looks gehören zu unserem Angebot. Dabei werden Längen, Spikes, Abstände und Mapping gezielt aufgebaut, damit der gewünschte Charakter des Looks entsteht und trotzdem zu deinen Augen passt. Am besten sendest du bei deiner Anfrage ein oder mehrere Inspirationsbilder mit.</div></details>
+      <details><summary>Wie lange hält eine Wimpernverlängerung?</summary><div class="faq-answer">Extensions fallen nach und nach zusammen mit dem natürlichen Wachstumszyklus deiner eigenen Wimpern aus. Wie lange ein Set optisch voll bleibt, ist individuell und hängt unter anderem von deinem Wimpernzyklus, deiner Pflege und deinem Alltag ab. Für ein dauerhaft gepflegtes Ergebnis werden regelmäßige Auffülltermine benötigt.</div></details>
+      <details><summary>Wann sollte ich zum Auffüllen kommen?</summary><div class="faq-answer">Für ein dauerhaft schönes und gepflegtes Ergebnis empfehlen wir, <strong>alle 3 Wochen und spätestens nach 4 Wochen</strong> zum Auffüllen zu kommen. Wie schnell ein Refill nötig ist, hängt zusätzlich von deinem natürlichen Wimpernzyklus, der Pflege und davon ab, wie viele Extensions noch vorhanden bzw. herausgewachsen sind. Warte möglichst nicht, bis nur noch sehr wenige Extensions vorhanden sind. Wenn du unsicher bist, kannst du uns vorab ein aktuelles Foto über WhatsApp oder über die Terminanfrage schicken.</div></details>
+      <details><summary>Kann ich mit Wimpern von einem anderen Studio zum Auffüllen kommen?</summary><div class="faq-answer">Bitte gib <strong>Fremdmaterial</strong> bei der Terminanfrage unbedingt an und lade möglichst ein aktuelles Foto hoch. Wir prüfen dann, ob ein Auffüllen sinnvoll möglich ist. Je nach Zustand, Verklebungen, Mapping oder herausgewachsenen Extensions kann stattdessen eine Entfernung und ein neues Set empfehlenswert sein.</div></details>
+      <details><summary>Wie bereite ich mich auf meinen Termin vor?</summary><div class="faq-answer">Komm möglichst mit <strong>sauberen, ungeschminkten Augen und Wimpern</strong>. Vermeide unmittelbar vorher Mascara und stark ölhaltige Produkte im Augenbereich. Kontaktlinsen sollten sich für die Behandlung problemlos herausnehmen lassen. Wenn du einen bestimmten Look möchtest, bring gern Referenzbilder mit.</div></details>
+      <details><summary>Wie pflege ich meine Wimpern nach dem Termin?</summary><div class="faq-answer">Behandle die Extensions möglichst sanft, reibe oder ziehe nicht daran und halte sie sauber. Regelmäßige, schonende Reinigung hilft dabei, Make-up, Hautfett und Ablagerungen zu entfernen. Vermeide Produkte oder Gewohnheiten, die die Haltbarkeit unnötig beeinträchtigen können, und bürste die Wimpern vorsichtig.</div></details>
+      <details><summary>Kann ich mit Extensions duschen, Sport machen oder in die Sauna?</summary><div class="faq-answer">Grundsätzlich sind Wimpernextensions alltagstauglich. Wasser, Schweiß und Wärme gehören zum normalen Leben – wichtig ist vor allem eine gute Reinigung und ein vorsichtiger Umgang. Sehr intensive Hitze, Reibung oder dauerhaft starke Belastung können die Haltbarkeit beeinflussen.</div></details>
+      <details><summary>Kann ich Mascara oder Augen-Make-up tragen?</summary><div class="faq-answer">Augen-Make-up ist grundsätzlich möglich, sollte sich aber schonend und rückstandsfrei entfernen lassen. Bei Extensions ist Mascara normalerweise nicht nötig und kann die Fächer bzw. das Design verkleben. Wenn du Produkte im Augenbereich verwendest, achte besonders auf gründliche, sanfte Reinigung.</div></details>
+      <details><summary>Was ist ein Korean Lash Lift?</summary><div class="faq-answer">Ein Lash Lift formt deine <strong>eigenen Naturwimpern</strong> nach oben, statt Extensions anzubringen. Der Korean-Lash-Lift-Stil zielt auf einen sauberen, angehobenen und definierten Effekt. Welche Form und Intensität möglich ist, hängt von Länge, Dichte und Wuchsrichtung deiner Naturwimpern ab.</div></details>
+      <details><summary>Ist eine Wimpernverlängerung für empfindliche Augen geeignet?</summary><div class="faq-answer">Empfindlichkeit ist sehr individuell. Informiere uns bitte <strong>vor der Behandlung</strong> über bekannte Reaktionen, Allergien, aktuelle Reizungen oder Beschwerden im Augenbereich. Bei akuten Beschwerden sollte eine kosmetische Behandlung verschoben und bei Bedarf medizinisch abgeklärt werden.</div></details>
+      <details><summary>Wie lange dauert ein Termin?</summary><div class="faq-answer">Die Dauer hängt von der gewählten Behandlung, dem gewünschten Design, deinen Naturwimpern und davon ab, ob es sich um ein Neu-Set oder Auffüllen handelt. Bei der Terminanfrage zeigen wir dir für die gewählte Leistung eine ungefähre Dauer an. Für aufwendige Design-Looks sollte entsprechend mehr Zeit eingeplant werden.</div></details>
+      <details><summary>Kann ich für mehrere Personen gleichzeitig anfragen?</summary><div class="faq-answer">Ja. Im Anfrageformular kannst du die <strong>Anzahl der Personen</strong> auswählen. Wir prüfen anschließend persönlich, ob die gewünschte Uhrzeit für alle Personen verfügbar ist. Die Online-Anfrage allein ist noch keine feste Buchung.</div></details>
+      <details><summary>Ist meine Online-Terminanfrage sofort bestätigt?</summary><div class="faq-answer"><strong>Nein.</strong> Nach dem Absenden erhältst du zunächst eine Eingangsbestätigung. Wir prüfen die Verfügbarkeit persönlich. Erst wenn Xinh Lashes dir den Termin ausdrücklich bestätigt, ist er verbindlich gebucht.</div></details>
+      <details><summary>Wo befindet sich Xinh Lashes?</summary><div class="faq-answer">Du findest uns in der <strong>Boxhagener Straße 35, 10245 Berlin-Friedrichshain</strong>. Über den Google-Maps-Button auf der Website kannst du direkt die Route öffnen. Bei Fragen erreichst du uns außerdem telefonisch, per WhatsApp oder E-Mail.</div></details>
+    </div>
+    <div class="faq-cta"><div><strong>Noch eine Frage?</strong><p>Schreib uns einfach – wir helfen dir auch bei der Auswahl des passenden Looks.</p></div><a class="btn btn-dark" href="https://wa.me/4915224707383?text=Hallo%20Xinh%20Lashes%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+</section>
+
 </main>
 
 <footer>

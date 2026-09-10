@@ -1549,21 +1549,46 @@ document.getElementById('bookingForm').addEventListener('submit', async function
       files: encodedFiles
     };
 
-    // Google Apps Script wird cross-origin aufgerufen. Wir verwenden bewusst
-    // einen einfachen no-cors POST wie bei der funktionierenden Angel-Nails-Lösung.
-    // Die Antwort von Apps Script ist für den Browser dann "opaque", der POST selbst
-    // wird aber zuverlässig abgesendet und Apps Script kann die E-Mail verschicken.
-    const postData = new FormData();
-    postData.append('payload', JSON.stringify(requestData));
-    postData.append('bot-field', requestData.botField || '');
+    // Robuster Versand an Google Apps Script ohne fetch/CORS:
+    // Wir senden den POST wie ein normales HTML-Formular in ein verborgenes iframe.
+    // Das funktioniert auch dann zuverlässig, wenn Google Apps Script auf
+    // googleusercontent.com weiterleitet. Eine Antwort muss die Website nicht lesen.
+    let gasFrame = document.getElementById('xinhGasTarget');
+    if(!gasFrame){
+      gasFrame = document.createElement('iframe');
+      gasFrame.id = 'xinhGasTarget';
+      gasFrame.name = 'xinhGasTarget';
+      gasFrame.style.display = 'none';
+      gasFrame.setAttribute('aria-hidden','true');
+      document.body.appendChild(gasFrame);
+    }
 
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      redirect: 'follow',
-      body: postData,
-      cache: 'no-store'
-    });
+    const gasForm = document.createElement('form');
+    gasForm.method = 'POST';
+    gasForm.action = SCRIPT_URL;
+    gasForm.target = 'xinhGasTarget';
+    gasForm.style.display = 'none';
+    gasForm.acceptCharset = 'UTF-8';
+
+    const payloadInput = document.createElement('input');
+    payloadInput.type = 'hidden';
+    payloadInput.name = 'payload';
+    payloadInput.value = JSON.stringify(requestData);
+    gasForm.appendChild(payloadInput);
+
+    const botInput = document.createElement('input');
+    botInput.type = 'hidden';
+    botInput.name = 'bot-field';
+    botInput.value = requestData.botField || '';
+    gasForm.appendChild(botInput);
+
+    document.body.appendChild(gasForm);
+    gasForm.submit();
+
+    // Das Formular wird sofort wieder entfernt; der Browser hat den POST dann bereits gestartet.
+    setTimeout(() => gasForm.remove(), 1500);
+    // Kurze Wartezeit, damit der Versand sichtbar sauber abgeschlossen wirkt.
+    await new Promise(resolve => setTimeout(resolve, 900));
 
     document.getElementById('successSummary').textContent = lang==='en'
       ? `${serviceLabel} (${typeLabel}), preferred ${dateFmt} at ${selectedSlot}. Your request has been sent; this is not yet an appointment confirmation.`

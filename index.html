@@ -1549,59 +1549,20 @@ document.getElementById('bookingForm').addEventListener('submit', async function
       files: encodedFiles
     };
 
-    const iframeName = 'xinhBookingReceiver';
-    let iframe = document.getElementById(iframeName);
-    if(!iframe){
-      iframe = document.createElement('iframe');
-      iframe.id = iframeName;
-      iframe.name = iframeName;
-      iframe.style.display = 'none';
-      iframe.setAttribute('aria-hidden','true');
-      document.body.appendChild(iframe);
-    }
+    // Google Apps Script wird cross-origin aufgerufen. Wir verwenden bewusst
+    // einen einfachen no-cors POST wie bei der funktionierenden Angel-Nails-Lösung.
+    // Die Antwort von Apps Script ist für den Browser dann "opaque", der POST selbst
+    // wird aber zuverlässig abgesendet und Apps Script kann die E-Mail verschicken.
+    const postData = new FormData();
+    postData.append('payload', JSON.stringify(requestData));
+    postData.append('bot-field', requestData.botField || '');
 
-    const result = await new Promise((resolve,reject)=>{
-      let finished = false;
-      const timeout = setTimeout(()=>{
-        if(finished) return;
-        finished = true;
-        window.removeEventListener('message', onMessage);
-        reject(new Error('Request timeout'));
-      }, 30000);
-
-      function onMessage(event){
-        if(event.source !== iframe.contentWindow) return;
-        const data = event.data;
-        if(!data || typeof data !== 'object' || typeof data.ok !== 'boolean') return;
-        if(finished) return;
-        finished = true;
-        clearTimeout(timeout);
-        window.removeEventListener('message', onMessage);
-        data.ok ? resolve(data) : reject(new Error(data.message || 'Request failed'));
-      }
-      window.addEventListener('message', onMessage);
-
-      const postForm = document.createElement('form');
-      postForm.method = 'POST';
-      postForm.action = SCRIPT_URL;
-      postForm.target = iframeName;
-      postForm.style.display = 'none';
-
-      const payloadInput = document.createElement('input');
-      payloadInput.type = 'hidden';
-      payloadInput.name = 'payload';
-      payloadInput.value = JSON.stringify(requestData);
-      postForm.appendChild(payloadInput);
-
-      const botInput = document.createElement('input');
-      botInput.type = 'hidden';
-      botInput.name = 'bot-field';
-      botInput.value = requestData.botField;
-      postForm.appendChild(botInput);
-
-      document.body.appendChild(postForm);
-      postForm.submit();
-      setTimeout(()=>postForm.remove(), 1000);
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      redirect: 'follow',
+      body: postData,
+      cache: 'no-store'
     });
 
     document.getElementById('successSummary').textContent = lang==='en'

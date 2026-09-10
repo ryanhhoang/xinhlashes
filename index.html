@@ -1290,12 +1290,18 @@ async function renderSlots(){
   }
 
   const now = new Date();
-  const isToday = dateInput.value === now.toISOString().split('T')[0];
-  const nowMin = now.getHours()*60+now.getMinutes()+45;
+  const localToday = [
+    now.getFullYear(),
+    String(now.getMonth()+1).padStart(2,'0'),
+    String(now.getDate()).padStart(2,'0')
+  ].join('-');
+  const isToday = dateInput.value === localToday;
+  const nowMin = now.getHours()*60 + now.getMinutes();
   let shown=0;
   ALL_SLOTS.forEach(t=>{
     const startMin=toMinutes(t);
-    if(isToday && startMin < nowMin) return;
+    // Für den heutigen Tag niemals bereits vergangene oder gerade erreichte Startzeiten anbieten.
+    if(isToday && startMin <= nowMin) return;
     const b=document.createElement('button');
     b.type='button';
     b.className='slot';
@@ -1322,8 +1328,13 @@ async function renderSlots(){
 
 const dateInput = document.getElementById('date');
 const today = new Date();
-dateInput.min = today.toISOString().split('T')[0];
-dateInput.value = dateInput.min;
+const todayLocal = [
+  today.getFullYear(),
+  String(today.getMonth()+1).padStart(2,'0'),
+  String(today.getDate()).padStart(2,'0')
+].join('-');
+dateInput.min = todayLocal;
+dateInput.value = todayLocal;
 dateInput.addEventListener('change', renderSlots);
 document.getElementById('service').addEventListener('change', renderSlots);
 renderSlots();

@@ -654,6 +654,50 @@
   .side-location{font-size:9.5px!important}
 }
 </style>
+
+<style id="drawer-v22-overlap-fix">
+/* v22: Mobile-Menü ohne Überlappungen. Die Bereiche fließen normal untereinander. */
+@media (max-width:900px){
+  .side-drawer{
+    display:flex!important;
+    flex-direction:column!important;
+    height:auto!important;
+    max-height:calc(100dvh - 24px)!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+  .side-head{flex:0 0 auto!important}
+  .side-links{
+    display:flex!important;
+    flex-direction:column!important;
+    flex:0 0 auto!important;
+    overflow:visible!important;
+    min-height:0!important;
+    justify-content:flex-start!important;
+  }
+  .side-links a{flex:0 0 auto!important}
+  .side-mini{
+    position:static!important;
+    display:flex!important;
+    flex-direction:column!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    margin-top:10px!important;
+    padding:12px 8px 2px!important;
+    border-top:1px solid var(--line)!important;
+    background:transparent!important;
+    z-index:auto!important;
+  }
+  .side-lang-row{position:static!important;width:100%!important}
+  .side-location{position:static!important;margin-top:4px!important}
+}
+@media (max-width:620px){
+  .side-drawer{max-height:calc(100dvh - 20px)!important}
+  .side-links a{font-size:17px!important;padding:8px 6px!important}
+  .side-links .side-book-link{margin-top:8px!important;padding:11px 14px!important}
+  .side-mini{margin-top:8px!important;padding-top:9px!important}
+}
+</style>
 </head>
 <body>
 <div class="topline"></div>

@@ -810,6 +810,7 @@
       </div>
       <div class="grid2">
         <div class="field"><label data-i18n="book.lbl.date">WUNSCHDATUM</label><input id="date" name="wunschdatum" type="date" required></div>
+        <div class="field"><label id="personsLabel">ANZAHL PERSONEN</label><select id="persons" name="personen" required><option value="1">1 Person</option><option value="2">2 Personen</option><option value="3">3 Personen</option><option value="4">4 Personen</option></select></div>
       </div>
       <label data-i18n="book.lbl.slots">GEWÜNSCHTE STARTZEIT (LETZTER MÖGLICHER START 17:30 UHR)</label>
       <div class="slots" id="slots"></div>
@@ -1540,6 +1541,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
       art: typeSel.value,
       artLabel: typeLabel,
       wunschdatum: date.value,
+      personen: document.getElementById('persons')?.value || '1',
       wunschzeit: selectedSlot,
       zeitraum: selectedSlot + '–' + endTime,
       nachricht: note.value.trim(),
@@ -1633,7 +1635,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     <p class="legal-lead">Stand: 10. September 2026. Informationen nach Art. 13 DSGVO über die Verarbeitung personenbezogener Daten auf dieser Website.</p>
     <div class="legal-card"><h2>1. Verantwortliche</h2><p><strong>Xinh Lashes Berlin</strong><br>Inhaberin: Thi My Le Nguyen<br>Boxhagener Straße 35, 10245 Berlin<br>Telefon: <a href="tel:+4915224707383">0152 24707383</a><br>E-Mail: <a href="mailto:info@xinhlashes.de">info@xinhlashes.de</a></p></div>
     <div class="legal-card"><h2>2. Hosting</h2><p>Diese Website wird über Netlify bereitgestellt. Anbieter ist Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA. Beim Aufruf der Website verarbeitet Netlify technisch erforderliche Verbindungs- und Protokolldaten, insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Ressource, Referrer sowie Browser- und Geräteinformationen. Die Verarbeitung erfolgt zur sicheren, stabilen und effizienten Bereitstellung der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Soweit Netlify Daten in unserem Auftrag verarbeitet, erfolgt dies auf Grundlage eines Auftragsverarbeitungsverhältnisses. Übermittlungen in die USA können insbesondere auf dem EU-U.S. Data Privacy Framework bzw. ergänzend auf geeigneten Garantien wie Standardvertragsklauseln beruhen. Weitere Informationen: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify Privacy Statement</a>.</p></div>
-    <div class="legal-card"><h2>3. Terminanfrage über das Formular</h2><p>Wenn du eine Terminanfrage sendest, verarbeiten wir die von dir eingegebenen Daten, insbesondere Name, gewünschte Behandlung, Wunschdatum, Wunschzeit, Telefonnummer, E-Mail-Adresse, freiwillige Nachricht und – sofern von dir ausgewählt – bis zu sechs Referenzbilder. Zweck ist ausschließlich die Prüfung, Bearbeitung und persönliche Beantwortung deiner Terminanfrage. Die Anfrage ist keine automatische Buchung und löst keine automatische Terminbestätigung aus. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf deine Anfrage).</p><p>Zur technischen Übermittlung der Terminanfrage verwenden wir Google Apps Script und für die Zustellung an unser Studio-Postfach Google-Dienste. Dabei werden die Formulardaten an Google-Systeme übertragen und dort zur technischen Verarbeitung der Anfrage genutzt. Die Daten werden von uns nur so lange verarbeitet, wie dies für die Bearbeitung der Anfrage und eine gegebenenfalls anschließende Kundenbeziehung erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt.</p></div>
+    <div class="legal-card"><h2>3. Terminanfrage über das Formular</h2><p>Wenn du eine Terminanfrage sendest, verarbeiten wir die von dir eingegebenen Daten, insbesondere Name, gewünschte Behandlung, Wunschdatum, Wunschzeit, Telefonnummer, E-Mail-Adresse, freiwillige Nachricht und – sofern von dir ausgewählt – bis zu sechs Referenzbilder. Zweck ist ausschließlich die Prüfung, Bearbeitung und persönliche Beantwortung deiner Terminanfrage. Die Anfrage ist keine automatische Buchung. Nach dem Absenden kann eine automatische Eingangsbestätigung per E-Mail versendet werden; diese bestätigt ausschließlich den Eingang der Anfrage und stellt ausdrücklich keine Terminbestätigung oder Reservierung dar. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf deine Anfrage).</p><p>Zur technischen Übermittlung der Terminanfrage verwenden wir Google Apps Script und für die Zustellung an unser Studio-Postfach Google-Dienste. Dabei werden die Formulardaten an Google-Systeme übertragen und dort zur technischen Verarbeitung der Anfrage genutzt. Die Daten werden von uns nur so lange verarbeitet, wie dies für die Bearbeitung der Anfrage und eine gegebenenfalls anschließende Kundenbeziehung erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt.</p></div>
     <div class="legal-card"><h2>4. Kontakt per E-Mail, Telefon und WhatsApp</h2><p>Bei Kontakt per E-Mail oder Telefon verarbeiten wir die von dir übermittelten Angaben zur Bearbeitung deiner Anfrage auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO bzw., soweit keine Vertragsanbahnung betroffen ist, Art. 6 Abs. 1 lit. f DSGVO.</p><p>Für WhatsApp verwenden wir den Dienst von Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland. Wenn du den WhatsApp-Link anklickst oder uns dort schreibst, werden insbesondere deine Telefonnummer, Kommunikationsinhalte und technische Metadaten durch WhatsApp/Meta verarbeitet. Die Nutzung ist freiwillig; alternativ kannst du uns per E-Mail oder Telefon kontaktieren. Rechtsgrundlage für unsere Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO. Informationen zur Verarbeitung durch WhatsApp findest du in deren Datenschutzhinweisen.</p></div>
     <div class="legal-card"><h2>5. Google Maps</h2><p>Die Google-Maps-Karte wird auf dieser Website nicht automatisch geladen. Erst nach deiner aktiven Zustimmung wird eine Verbindung zu Google Maps hergestellt. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei können insbesondere IP-Adresse, Geräteinformationen und Nutzungsdaten verarbeitet und gegebenenfalls in Drittländer übermittelt werden. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO; soweit Informationen auf deinem Endgerät gespeichert oder ausgelesen werden, erfolgt dies auf Grundlage von § 25 Abs. 1 TDDDG. Du kannst deine Entscheidung jederzeit über „Cookie-Einstellungen“ im Footer ändern.</p></div>
     <div class="legal-card"><h2>6. Instagram, TikTok, Facebook, Salonkee und externe Links</h2><p>Auf der Website befinden sich Links zu externen Angeboten wie Instagram, TikTok, Facebook und Salonkee. Solange du diese Links nicht anklickst, wird allein durch die Verlinkung keine direkte Verbindung zu diesen Anbietern hergestellt. Nach dem Anklicken gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p></div>
@@ -1680,5 +1682,19 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 })();
 </script>
 
+
+<script>
+(function(){
+  function syncPersonsLanguage(){
+    const isEn=(localStorage.getItem('xinh-lang')||document.documentElement.lang||'de').toLowerCase().startsWith('en');
+    const l=document.getElementById('personsLabel'), p=document.getElementById('persons');
+    if(l) l.textContent=isEn?'NUMBER OF PEOPLE':'ANZAHL PERSONEN';
+    if(p){[...p.options].forEach((o,i)=>o.textContent=isEn?((i+1)+' '+((i===0)?'person':'people')):((i+1)+' '+((i===0)?'Person':'Personen')));}
+  }
+  document.addEventListener('click',e=>{if(e.target.closest('[data-lang]')) setTimeout(syncPersonsLanguage,0)});
+  document.addEventListener('DOMContentLoaded',syncPersonsLanguage);
+  syncPersonsLanguage();
+})();
+</script>
 </body>
 </html>

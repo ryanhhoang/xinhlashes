@@ -875,6 +875,143 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .icon-btn,.menu-btn,.side-close,.side-lang-btn{touch-action:manipulation}
 </style>
 
+
+<style id="xinh-v25-sidebar-size-fix">
+/*
+  v25: The mobile menu BOX itself is larger.
+  No inner scrolling on normal phones; all menu items remain visible.
+*/
+@media (max-width:900px){
+  .side-drawer{
+    top:12px!important;
+    right:12px!important;
+    bottom:auto!important;
+
+    width:calc(100vw - 24px)!important;
+    max-width:430px!important;
+
+    /* THIS is the important change: real fixed available height */
+    height:calc(100dvh - 24px)!important;
+    max-height:calc(100dvh - 24px)!important;
+    min-height:620px!important;
+
+    padding:0 22px 18px!important;
+    border-radius:30px!important;
+
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+  }
+
+  .side-head{
+    flex:0 0 82px!important;
+    min-height:82px!important;
+    padding:10px 0 10px!important;
+  }
+  .side-head .brand img{
+    height:58px!important;
+    max-width:190px!important;
+  }
+  .side-close{
+    width:48px!important;
+    height:48px!important;
+    border-radius:16px!important;
+  }
+
+  /* Navigation receives the free space in the larger box */
+  .side-links{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:space-evenly!important;
+    gap:0!important;
+    padding:10px 8px!important;
+    overflow:visible!important;
+  }
+  .side-links a{
+    flex:0 0 auto!important;
+    font-family:Inter,Arial,sans-serif!important;
+    font-size:19px!important;
+    font-weight:500!important;
+    line-height:1.15!important;
+    text-align:center!important;
+    padding:7px 6px!important;
+    border:0!important;
+  }
+  .side-links .side-book-link{
+    margin:7px 0 0!important;
+    padding:14px 18px!important;
+    font-size:14px!important;
+    font-weight:800!important;
+    border-radius:999px!important;
+  }
+
+  .side-mini{
+    flex:0 0 auto!important;
+    position:static!important;
+    width:100%!important;
+    margin:0!important;
+    padding:12px 8px 0!important;
+    border-top:1px solid var(--line)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:9px!important;
+  }
+  .side-lang-row{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+  }
+  .side-lang-btn{
+    min-height:48px!important;
+    font-size:14px!important;
+    border-radius:16px!important;
+  }
+  .side-location{
+    position:static!important;
+    margin:0!important;
+    padding:0 0 2px!important;
+    font-size:11px!important;
+    line-height:1.2!important;
+    text-align:center!important;
+  }
+}
+
+/* Short phones: still use the whole available box, but scale contents slightly.
+   We keep overflow hidden and do NOT create the awkward inner scrollbar. */
+@media (max-width:900px) and (max-height:700px){
+  .side-drawer{
+    top:8px!important;
+    right:8px!important;
+    width:calc(100vw - 16px)!important;
+    height:calc(100dvh - 16px)!important;
+    max-height:calc(100dvh - 16px)!important;
+    min-height:0!important;
+    padding:0 16px 12px!important;
+    border-radius:24px!important;
+  }
+  .side-head{
+    flex-basis:62px!important;
+    min-height:62px!important;
+    padding:6px 0!important;
+  }
+  .side-head .brand img{height:45px!important}
+  .side-close{width:40px!important;height:40px!important}
+  .side-links{padding:5px 4px!important}
+  .side-links a{font-size:16px!important;padding:4px 4px!important}
+  .side-links .side-book-link{
+    margin-top:4px!important;
+    padding:10px 14px!important;
+    font-size:13px!important;
+  }
+  .side-mini{padding-top:7px!important;gap:5px!important}
+  .side-lang-btn{min-height:38px!important;font-size:12px!important}
+  .side-location{font-size:9.5px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="topline"></div>

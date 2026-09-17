@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.xinhlashes.de/sitemap.xml
+Sitemap: https://xinhlashes.de/sitemap.xml

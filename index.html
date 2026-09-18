@@ -1359,6 +1359,33 @@ header .brand img,.side-head .brand img{
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+
+<style id="xinh-date-center-v35">
+/* Wunschdatum auf Mobile sauber vertikal und horizontal in der Box zentrieren */
+#date{
+  box-sizing:border-box!important;
+}
+@media(max-width:620px){
+  #date{
+    height:58px!important;
+    min-height:58px!important;
+    padding:0 16px!important;
+    line-height:58px!important;
+    text-align:center!important;
+  }
+  #date::-webkit-date-and-time-value{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:58px!important;
+    min-height:58px!important;
+    padding:0!important;
+    margin:0!important;
+    text-align:center!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="topline"></div>
@@ -1606,7 +1633,7 @@ header .brand img,.side-head .brand img{
         </div>
       </div>
 
-      <div class="price-note" data-i18n="price.note">Alle Preise inkl. Beratung und Aftercare-Tipps. Preisänderungen vorbehalten – die online buchbaren Behandlungen (Mascara, Hybrid, Wetlook, Mega, Design Look) kannst du direkt unten reservieren, alle weiteren Leistungen gerne per WhatsApp anfragen.</div>
+      <div class="price-note" data-i18n="price.note">Alle Preise inkl. Beratung und Aftercare-Tipps. Preisänderungen vorbehalten. Alle aufgeführten Behandlungen können unten als Terminanfrage ausgewählt werden; der Termin ist erst nach unserer persönlichen Bestätigung verbindlich.</div>
     </div>
   </div>
 </section>
@@ -1653,7 +1680,7 @@ header .brand img,.side-head .brand img{
     <div>
       <div class="eyebrow" style="color:#f0c56f" data-i18n="book.eyebrow">Terminanfrage</div>
       <h2 data-i18n-html="book.h2">Wunschtermin anfragen.</h2>
-      <p class="sub" data-i18n="book.sub">Sende uns deinen Wunschtermin. Wir prüfen die Anfrage persönlich und melden uns per E-Mail zurück.</p>
+      <p class="sub" data-i18n="book.sub">Wähle deine Behandlung, Preisoption, Wunschdatum und Wunschzeit. Wir prüfen jede Anfrage persönlich und melden uns per E-Mail zurück.</p>
     </div>
     <form class="form" id="bookingForm" name="terminanfrage" method="POST" enctype="multipart/form-data" novalidate>
       <p style="display:none"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
@@ -1966,7 +1993,7 @@ const I18N = {
     "price.a1":"Design (Kim K, Wispy, UV, colour)","price.a2":"Lash extension removal","price.a3":"Hand massage","price.a4":"Korean lifting incl. colour","price.a5":"Lash lifting incl. (with / without colour)","price.a6":"Brow lifting incl. (with / without colour)","price.a7":"Brow tweezing & tinting","price.a8":"Brow & lash tinting","price.a9":"Brow tweezing","price.a10":"Brow tinting","price.a11":"Lash tinting","price.a12":"Lower lashes",
     "price.note":"All prices include consultation and aftercare tips. Prices are subject to change. The appointment request below also includes lifting, tinting, brow shaping, lash removal and other small treatments.",
     "ig.eyebrow":"Social","ig.h2":"Follow us.<br>See every new look first.","ig.sub":"Discover new looks, before-and-after results and studio moments on Instagram and TikTok.","ig.cta":"View Instagram","tt.cta":"View TikTok","studio.eyebrow":"YOUR LASH MOMENT IN BERLIN","studio.h3":"Arrive, unwind.<br>Leave feeling beautiful.","studio.p":"At our Friedrichshain studio, precise lash work meets a calm, warm atmosphere. Send your preferred appointment time through the form – we review every request personally and reply by email.","studio.cta":"Request an appointment",
-    "book.eyebrow":"Appointment request","book.h2":"Request your preferred appointment.","book.sub":"Send us your preferred appointment time. We review every request personally and reply by email.",
+    "book.eyebrow":"Appointment request","book.h2":"Request your preferred appointment.","book.sub":"Choose your treatment, price option, preferred date and time. We review every request personally and reply by email.",
     "book.f1.b":"No automatic booking","book.f1.s":"Your request is sent to our studio and checked manually.",
     "book.f2.b":"No real-time availability","book.f2.s":"Displayed times are possible preferred times, not a live view of actual availability.",
     "book.f3.b":"Personal confirmation","book.f3.s":"We personally confirm your request or suggest an alternative by email or WhatsApp.",
@@ -2679,6 +2706,78 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
 
 
+
+
+<script id="xinh-booking-v34">
+document.addEventListener("DOMContentLoaded", function () {
+  const dateInput = document.getElementById("date");
+  const service = document.getElementById("service");
+  const typeSel = document.getElementById("bookingType");
+  const form = document.getElementById("bookingForm");
+
+  function localISO(d=new Date()){
+    return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  }
+
+  /* Never allow a date before today – also enforce it when iOS restores an old form value. */
+  function enforceDate(){
+    if(!dateInput) return;
+    const today = localISO();
+    dateInput.min = today;
+    if(!dateInput.value || dateInput.value < today){
+      dateInput.value = today;
+    }
+  }
+
+  enforceDate();
+
+  dateInput?.addEventListener("input", function(){
+    const today = localISO();
+    if(this.value && this.value < today){
+      this.value = today;
+    }
+    if(typeof renderSlots === "function") renderSlots();
+  });
+
+  dateInput?.addEventListener("change", function(){
+    enforceDate();
+    if(typeof renderSlots === "function") renderSlots();
+  });
+
+  /* Safety validation on submit: past dates/times can never be sent. */
+  form?.addEventListener("submit", function(e){
+    enforceDate();
+    const today = localISO();
+    const chosenDate = dateInput?.value || "";
+    const chosenTime = document.getElementById("slotValue")?.value || "";
+    const now = new Date();
+
+    if(chosenDate < today){
+      e.preventDefault();
+      alert("Bitte wähle ein heutiges oder zukünftiges Datum.");
+      return;
+    }
+
+    if(chosenDate === today && chosenTime){
+      const [h,m] = chosenTime.split(":").map(Number);
+      const chosenMin = h*60+m;
+      const nowMin = now.getHours()*60+now.getMinutes();
+      if(chosenMin <= nowMin){
+        e.preventDefault();
+        document.getElementById("slotValue").value = "";
+        if(typeof renderSlots === "function") renderSlots();
+        alert("Diese Uhrzeit ist bereits vorbei. Bitte wähle die nächste verfügbare Wunschzeit.");
+      }
+    }
+  }, true);
+
+  /* Refresh today's available times while the page stays open. */
+  setInterval(function(){
+    enforceDate();
+    if(dateInput?.value === localISO() && typeof renderSlots === "function") renderSlots();
+  }, 60000);
+});
+</script>
 
 </body>
 </html>
